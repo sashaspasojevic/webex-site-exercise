@@ -1,0 +1,399 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Open+Sans:wght@300;400&display=swap");
+
+$tamnoPlava: #1d527c; /* rgb(29, 82, 124) */
+$svetloPlava: #459ad3; /* rgb(69, 154, 211) */
+$orange: #fd7f45; /* rgb(253, 127, 69) */
+$tamnoSiva: #3c3b3c;
+$svetloSiva: lightgray;
+$bela: #fff;
+$transition: 0.3s ease;
+$padding: 100px 0;
+
+/*********************
+mixin
+**********************/
+
+@mixin buttonStyle() {
+  background-color: transparent;
+  color: $bela;
+  border: 2px solid $bela;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px 30px;
+  overflow: hidden;
+  margin-top: 20px;
+
+  transition: 0.5 ease;
+  &:hover {
+    color: $tamnoPlava;
+    border: 2px solid $tamnoPlava;
+    cursor: pointer;
+  }
+}
+
+@mixin breakpoint($breakpoint) {
+  @if $breakpoint == "phone" {
+    @media only screen and (min-width: 200px) and (max-width: 650px) {
+      @content; //css pravila
+    }
+  } @else if $breakpoint == "tablet" {
+    @media only screen and (min-width: 651px) and (max-width: 896px) {
+      @content;
+    }
+  }
+}
+
+/*********************
+basic style
+**********************/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  color: $tamnoSiva;
+  line-height: 1.6;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 70%;
+  margin: 0 auto;
+
+  @include breakpoint(phone) {
+    width: 90%;
+  }
+  @include breakpoint(tablet) {
+    width: 80%;
+  }
+}
+
+h2 {
+  font-size: 3rem;
+  color: $tamnoPlava;
+}
+h2::after {
+  display: block;
+  content: "";
+  width: 100px;
+  height: 2px;
+  background: $tamnoPlava;
+  margin: 10px 0 30px 0;
+}
+
+img {
+  width: 100%;
+}
+html {
+  scroll-behavior: smooth;
+}
+/* *******************
+navbar
+********************* */
+
+nav {
+  background: linear-gradient(
+    to right,
+    rgba($orange, 0.9),
+    rgba($tamnoPlava, 0.9)
+  );
+  padding: 5px 20px;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // flex-wrap: wrap;
+    @include breakpoint(phone) {
+      flex-direction: column;
+      // justify-content: center;
+      // align-items: center;
+      text-align: center;
+    }
+    a {
+      color: $bela;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      @include breakpoint(phone) {
+        font-size: 1rem;
+      }
+      &:hover {
+        color: $tamnoSiva;
+      }
+    }
+    .logo a {
+      font-weight: 700;
+      font-size: 2rem;
+      @include breakpoint(phone) {
+        font-weight: 400;
+        font-size: 1.5rem;
+      }
+    }
+    ul {
+      display: flex;
+      @include breakpoint(phone) {
+        display: block;
+      }
+      li {
+        margin-left: 30px;
+        @include breakpoint(phone) {
+          margin: 0;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
+
+/* *******************
+header
+********************* */
+header {
+  height: 90vh;
+  background: linear-gradient(rgba($orange, 0.6), rgba($orange, 0.4)),
+    url(img/baloon.jpg);
+  //   background-position: top;
+  background-size: cover;
+  @include breakpoint(phone) {
+    background-position: center;
+  }
+
+  color: $bela;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    @include breakpoint(phone) {
+      font-size: 1.8rem;
+    }
+    @include breakpoint(tablet) {
+      font-size: 2.2rem;
+    }
+  }
+
+  p {
+    padding: 20px 0;
+    @include breakpoint(phone) {
+      padding: 10px 3px;
+      text-align: center;
+    }
+    @include breakpoint(tablet) {
+      padding: 10px 3px;
+      text-align: center;
+    }
+  }
+
+  button {
+    @include buttonStyle();
+  }
+}
+
+/* *******************
+about
+********************* */
+
+main {
+  padding: $padding;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    .text {
+      flex: 0 0 47%;
+      @include breakpoint(phone) {
+        flex: 0 0 100%;
+        order: 5;
+      }
+    }
+    .image {
+      flex: 0 0 47%;
+      box-shadow: 7px 7px 0px 0px $tamnoPlava;
+      @include breakpoint(phone) {
+        flex: 0 0 100%;
+        padding: 5px;
+        box-shadow: 3px 3px 0px 0px $tamnoPlava;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+/* *******************
+services
+********************* */
+
+.services {
+  padding: $padding;
+  background: linear-gradient(rgba($svetloPlava, 0.8), rgba($svetloPlava, 0.8)),
+    url(img/header.jpg);
+  // height: 70vh;
+  background-position: center;
+  background-size: cover;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .services_icon {
+      flex: 0 0 50%;
+      @include breakpoint(phone) {
+        flex: 0 0 100%;
+      }
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      i {
+        flex: 0 0 50%;
+        padding: 50px 0;
+        font-size: 3rem;
+        @include breakpoint(phone) {
+          padding: 25px 0;
+          font-size: 2, 2rem;
+          text-align: center;
+        }
+
+        color: $orange;
+      }
+    }
+    .services_text {
+      flex: 0 0 50%;
+      @include breakpoint(phone) {
+        flex: 0 0 100%;
+      }
+
+      color: $bela;
+      h2 {
+        color: $bela;
+        &::after {
+          background: $orange;
+        }
+      }
+      p {
+        padding: 17px 0;
+      }
+    }
+  }
+}
+
+/* *******************
+latestPosts
+********************* */
+
+.lPosts {
+  padding: $padding;
+  @include breakpoint(phone) {
+    padding: 20px 0;
+  }
+
+  text-align: center;
+  h2::after {
+    margin: 10px auto 30px auto;
+    background: $orange;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    article {
+      flex: 0 0 31%;
+      @include breakpoint(phone) {
+        flex: 0 0 100%;
+        padding-bottom: 20px;
+      }
+
+      h3 {
+        padding: 10px;
+        font-size: 1.3rem;
+      }
+
+      p {
+        text-align: justify;
+      }
+
+      button {
+        @include buttonStyle();
+        background-color: $tamnoPlava;
+        color: $bela;
+
+        transition: 0.5 ease;
+        &:hover {
+          color: $svetloPlava;
+          border: 2px solid $svetloPlava;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+/* *******************
+footer
+********************* */
+
+footer {
+  @include breakpoint(phone) {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    // text-align: left;
+    align-items: center;
+
+    .footer_icon {
+      display: flex;
+    }
+
+    // .footer_text {
+    //   text-align: left;
+    // }
+  }
+
+  background: linear-gradient(
+      to right,
+      rgba($orange, 0.8),
+      rgba($svetloPlava, 0.6)
+    ),
+    url(img/baloon.jpg);
+
+  background-size: cover;
+  color: $bela;
+  padding: 100px;
+  text-align: center;
+  .footer_icon {
+    margin-bottom: 20px;
+    i {
+      color: $tamnoPlava;
+      font-size: 1.7rem;
+      padding: 10px;
+    }
+  }
+}

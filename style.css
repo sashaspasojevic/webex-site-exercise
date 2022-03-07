@@ -1,0 +1,299 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Open+Sans:wght@300;400&display=swap");
+/* rgb(29, 82, 124) */
+/* rgb(69, 154, 211) */
+/* rgb(253, 127, 69) */
+/*********************
+mixin
+**********************/
+/*********************
+basic style
+**********************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  color: #3c3b3c;
+  line-height: 1.6; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif; }
+
+li {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+.container {
+  width: 70%;
+  margin: 0 auto; }
+  @media only screen and (min-width: 200px) and (max-width: 650px) {
+    .container {
+      width: 90%; } }
+  @media only screen and (min-width: 651px) and (max-width: 896px) {
+    .container {
+      width: 80%; } }
+
+h2 {
+  font-size: 3rem;
+  color: #1d527c; }
+
+h2::after {
+  display: block;
+  content: "";
+  width: 100px;
+  height: 2px;
+  background: #1d527c;
+  margin: 10px 0 30px 0; }
+
+img {
+  width: 100%; }
+
+html {
+  scroll-behavior: smooth; }
+
+/* *******************
+navbar
+********************* */
+nav {
+  background: linear-gradient(to right, rgba(253, 127, 69, 0.9), rgba(29, 82, 124, 0.9));
+  padding: 5px 20px; }
+  nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    @media only screen and (min-width: 200px) and (max-width: 650px) {
+      nav .container {
+        flex-direction: column;
+        text-align: center; } }
+    nav .container a {
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 1.1rem; }
+      @media only screen and (min-width: 200px) and (max-width: 650px) {
+        nav .container a {
+          font-size: 1rem; } }
+      nav .container a:hover {
+        color: #3c3b3c; }
+    nav .container .logo a {
+      font-weight: 700;
+      font-size: 2rem; }
+      @media only screen and (min-width: 200px) and (max-width: 650px) {
+        nav .container .logo a {
+          font-weight: 400;
+          font-size: 1.5rem; } }
+    nav .container ul {
+      display: flex; }
+      @media only screen and (min-width: 200px) and (max-width: 650px) {
+        nav .container ul {
+          display: block; } }
+      nav .container ul li {
+        margin-left: 30px; }
+        @media only screen and (min-width: 200px) and (max-width: 650px) {
+          nav .container ul li {
+            margin: 0;
+            padding: 10px; } }
+
+/* *******************
+header
+********************* */
+header {
+  height: 90vh;
+  background: linear-gradient(rgba(253, 127, 69, 0.6), rgba(253, 127, 69, 0.4)), url(img/baloon.jpg);
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  @media only screen and (min-width: 200px) and (max-width: 650px) {
+    header {
+      background-position: center; } }
+  header h1 {
+    font-size: 3rem;
+    font-weight: 300; }
+    @media only screen and (min-width: 200px) and (max-width: 650px) {
+      header h1 {
+        font-size: 1.8rem; } }
+    @media only screen and (min-width: 651px) and (max-width: 896px) {
+      header h1 {
+        font-size: 2.2rem; } }
+  header p {
+    padding: 20px 0; }
+    @media only screen and (min-width: 200px) and (max-width: 650px) {
+      header p {
+        padding: 10px 3px;
+        text-align: center; } }
+    @media only screen and (min-width: 651px) and (max-width: 896px) {
+      header p {
+        padding: 10px 3px;
+        text-align: center; } }
+  header button {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 15px 30px;
+    overflow: hidden;
+    margin-top: 20px;
+    transition: 0.5 ease; }
+    header button:hover {
+      color: #1d527c;
+      border: 2px solid #1d527c;
+      cursor: pointer; }
+
+/* *******************
+about
+********************* */
+main {
+  padding: 100px 0; }
+  main .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; }
+    main .container .text {
+      flex: 0 0 47%; }
+      @media only screen and (min-width: 200px) and (max-width: 650px) {
+        main .container .text {
+          flex: 0 0 100%;
+          order: 5; } }
+    main .container .image {
+      flex: 0 0 47%;
+      box-shadow: 7px 7px 0px 0px #1d527c; }
+      @media only screen and (min-width: 200px) and (max-width: 650px) {
+        main .container .image {
+          flex: 0 0 100%;
+          padding: 5px;
+          box-shadow: 3px 3px 0px 0px #1d527c;
+          margin-bottom: 20px; } }
+
+/* *******************
+services
+********************* */
+.services {
+  padding: 100px 0;
+  background: linear-gradient(rgba(69, 154, 211, 0.8), rgba(69, 154, 211, 0.8)), url(img/header.jpg);
+  background-position: center;
+  background-size: cover; }
+  .services .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; }
+    .services .container .services_icon {
+      flex: 0 0 50%;
+      display: flex;
+      flex-wrap: wrap; }
+      @media only screen and (min-width: 200px) and (max-width: 650px) {
+        .services .container .services_icon {
+          flex: 0 0 100%; } }
+      .services .container .services_icon i {
+        flex: 0 0 50%;
+        padding: 50px 0;
+        font-size: 3rem;
+        color: #fd7f45; }
+        @media only screen and (min-width: 200px) and (max-width: 650px) {
+          .services .container .services_icon i {
+            padding: 25px 0;
+            font-size: 2, 2rem;
+            text-align: center; } }
+    .services .container .services_text {
+      flex: 0 0 50%;
+      color: #fff; }
+      @media only screen and (min-width: 200px) and (max-width: 650px) {
+        .services .container .services_text {
+          flex: 0 0 100%; } }
+      .services .container .services_text h2 {
+        color: #fff; }
+        .services .container .services_text h2::after {
+          background: #fd7f45; }
+      .services .container .services_text p {
+        padding: 17px 0; }
+
+/* *******************
+latestPosts
+********************* */
+.lPosts {
+  padding: 100px 0;
+  text-align: center; }
+  @media only screen and (min-width: 200px) and (max-width: 650px) {
+    .lPosts {
+      padding: 20px 0; } }
+  .lPosts h2::after {
+    margin: 10px auto 30px auto;
+    background: #fd7f45; }
+  .lPosts .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; }
+    .lPosts .container article {
+      flex: 0 0 31%; }
+      @media only screen and (min-width: 200px) and (max-width: 650px) {
+        .lPosts .container article {
+          flex: 0 0 100%;
+          padding-bottom: 20px; } }
+      .lPosts .container article h3 {
+        padding: 10px;
+        font-size: 1.3rem; }
+      .lPosts .container article p {
+        text-align: justify; }
+      .lPosts .container article button {
+        background-color: transparent;
+        color: #fff;
+        border: 2px solid #fff;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 15px 30px;
+        overflow: hidden;
+        margin-top: 20px;
+        transition: 0.5 ease;
+        background-color: #1d527c;
+        color: #fff;
+        transition: 0.5 ease; }
+        .lPosts .container article button:hover {
+          color: #1d527c;
+          border: 2px solid #1d527c;
+          cursor: pointer; }
+        .lPosts .container article button:hover {
+          color: #459ad3;
+          border: 2px solid #459ad3;
+          cursor: pointer; }
+
+/* *******************
+footer
+********************* */
+footer {
+  background: linear-gradient(to right, rgba(253, 127, 69, 0.8), rgba(69, 154, 211, 0.6)), url(img/baloon.jpg);
+  background-size: cover;
+  color: #fff;
+  padding: 100px;
+  text-align: center; }
+  @media only screen and (min-width: 200px) and (max-width: 650px) {
+    footer {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      footer .footer_icon {
+        display: flex; } }
+  footer .footer_icon {
+    margin-bottom: 20px; }
+    footer .footer_icon i {
+      color: #1d527c;
+      font-size: 1.7rem;
+      padding: 10px; }
+
+/*# sourceMappingURL=style.css.map */
